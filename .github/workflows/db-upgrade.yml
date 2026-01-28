@@ -12,5 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: db_upgrade
     steps:
-      - run: echo "DB upgrade running..."
+      - name: Start DB upgrade
+        run: echo "DB upgrade running..."
 
+      - name: Simulate long DB upgrade
+        run: sleep 300   # 5 minutes
+
+      - name: Finish DB upgrade
+        run: echo "DB upgrade completed"
