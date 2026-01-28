@@ -1,0 +1,16 @@
+name: Prod Deploy
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-lock
+  cancel-in-progress: false
+
+jobs:
+  prod-deploy:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - run: echo "Prod deployment running..."
+

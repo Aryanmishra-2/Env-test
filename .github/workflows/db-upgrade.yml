@@ -1,0 +1,16 @@
+name: DB Upgrade
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-lock
+  cancel-in-progress: false
+
+jobs:
+  db-upgrade:
+    runs-on: ubuntu-latest
+    environment: db_upgrade
+    steps:
+      - run: echo "DB upgrade running..."
+
